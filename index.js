@@ -22,14 +22,6 @@ app.set("views",path.resolve("./views"))
 
 
 
-app.get("/test",(req,res)=>{
-
-let people=["sanjay","vanshika","test user"]
-    return res.render("home",{
-        people
-    })
-})
-
 app.use("/url", urlRoute);
 
 app.listen(port, () => {
