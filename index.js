@@ -2,6 +2,8 @@ const express = require("express");
 
 const { connectToDb } = require("./connection");
 
+const path=require("path")
+
 const urlRoute = require("./routes/url");
 
 const app = express();
@@ -15,6 +17,18 @@ app.use(require("express-status-monitor")());
 
 app.use(express.urlencoded({ extended: true })); //to read html form data
 app.use(express.json()); //to read json
+app.set('view engine', 'ejs');
+app.set("views",path.resolve("./views"))
+
+
+
+app.get("/test",(req,res)=>{
+
+let people=["sanjay","vanshika","test user"]
+    return res.render("home",{
+        people
+    })
+})
 
 app.use("/url", urlRoute);
 
