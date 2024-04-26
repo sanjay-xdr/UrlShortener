@@ -22,7 +22,7 @@ const handleUrlGeneration = async (req, res) => {
         visitHistory: [],
       });
     
-      return res.json("Created Successfullu");
+      return res.json("Url Created Successfullu");
   }catch(err){
     res.status(500).json({message:"Something went wrong"})
   }
