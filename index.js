@@ -5,6 +5,7 @@ const { connectToDb } = require("./connection");
 const path=require("path")
 
 const urlRoute = require("./routes/url");
+const staticRouter=require("./routes/staticRouter")
 
 const app = express();
 const port = 3000;
@@ -22,6 +23,8 @@ app.set("views",path.resolve("./views"))
 
 
 
+
+app.use("/",staticRouter);
 app.use("/url", urlRoute);
 
 app.listen(port, () => {
