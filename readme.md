@@ -2,6 +2,7 @@
 
 This is a simple URL shortener web application built with Node.js, Express, and MongoDB. 
 It allows users to shorten long URLs into more manageable shortened versions.
+It also tracks the Click on the URL
 
 ## Features
 
