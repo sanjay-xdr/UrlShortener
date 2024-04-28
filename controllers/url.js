@@ -5,6 +5,12 @@ const handleUrlGeneration = async (req, res) => {
   try {
     let urlData = req.body.url;
 
+    console.log(urlData,"Value of URL data")
+
+    if(!urlData){
+      res.send("Empty Value")
+    }
+
     let value = await Url.findOne({
       redirectUrl: urlData,
     });
@@ -18,9 +24,14 @@ const handleUrlGeneration = async (req, res) => {
       visitHistory: [],
     });
 
-    return res.json("Url Created Successfullu");
+    let message={success:true}
+
+    return res.render("home",{message})
+    // return res.json("Url Created Successfully");
   } catch (err) {
-    res.status(500).json({ message: "Something went wrong" });
+    let message={success:false}
+
+    return res.render("home",{message})
   }
 };
 
